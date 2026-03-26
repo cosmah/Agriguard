@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "ScanResult": {
+      "title": "ScanResult",
+      "description": "A record of a crop leaf scan and its analysis.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "timestamp": { "type": "number" },
+        "diseaseName": { "type": "string" },
+        "confidenceScore": { "type": "number" },
+        "organicTreatment": { 
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sustainabilityTip": { "type": "string" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["userId", "timestamp", "diseaseName", "confidenceScore", "organicTreatment", "sustainabilityTip", "imageUrl"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["uid", "email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/scans/{scanId}": {
+      "schema": "ScanResult",
+      "description": "Collection of crop scans."
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents."
+    }
+  }
+}

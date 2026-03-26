@@ -1,0 +1,7 @@
+{
+  "name": "AgriGuard",
+  "description": "AI-powered crop disease detection and organic treatment guide for sustainable farming.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
